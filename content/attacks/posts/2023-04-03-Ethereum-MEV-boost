@@ -1,0 +1,32 @@
+---
+date: 2023-04-03
+target-entities: Ethereum, MEV-boost
+entity-types:
+  - Blockchain
+  - Wallet
+attack-types: Reentrancy attack
+title: Two MIT students exploit a bug in MEV-boost, stealing $25 million 
+loss: 25,000,000
+---
+
+## Summary
+
+In December 2022, two MIT graduates, Anton Peraire-Bueno and James Peraire-Bueno, found a vulnerability in MEV-boost software. The brothers established 16 validators, and then engaged in "bait transactions" to find out what made the MEV bots propose bundles containing these transactions. This way they were able to identify 3 "victim traders" that specialized in crypto arbitrage trades. They had identified a vulnerability in the MEV-Boost relay code that prematurely exposed the full content of proposed blocks. This had allowed the attackers to tamper with the victim traders’ proposed blocks when one of the brothers’ 16 validators was selected to approve the next block. This way, the two brothers could initiate "lure transactions" which would cause the victim traders’ MEV bots to propose bundles containing these transactions, that included the victim traders’ own ‘buy’ transactions in which they paid $25 million in stablecoins and other tokens to acquire “substantial amounts of particularly illiquid cryptocurrencies”. When the victims' $25 million buy transaction had gone through, the brothers would replace the lure transactions with the tampered ones. In the tampered transactions the defendants sold the same illiquid cryptocurrencies that the victim traders had recently purchased as a result of the lure transactions and, for which the defendants already held as a result of information gathered through the bait transactions. Thus, the tampered transactions drained the particular liquidity pools of all the cryptocurrency that the victims had deposited based on their frontrun trades. This resulted in the victims' sell orders not being able to go through, which left them with worthless cryptocurrency, while the attackers had collected $25 million worth of stablecoins and more liquid tokens.   
+
+## Attackers
+
+The attackers had been identified as two brothers - Anton Peraire-Bueno, 24 and James Peraire-Bueno, 28.
+
+## Losses
+
+Around $25 million worth of cryptocurrency was stolen by the attackers from multiple victims.
+
+## Timeline
+
+- **December, 2022:** The two brothers find the security flaw in MEV-boost, and plan out the heist within the next few months.
+- **April 3, 2023:** The brothers execute the heist, stealing $25 million in 12 seconds.
+- **May 15, 2024:** They are charged with conspiracy to commit wire fraud, wire fraud, and conspiracy to commit money laundering, potentially facing 20 years of prison at most.
+
+## Security Failure Causes
+
+This was caused by a flaw in MEV-boost's relay code, which allowed the attackers to see the bundled up transactions as if they signed the block but the block was rejected for another reason.
